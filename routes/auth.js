@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const PokemonAPI = require('../services/PokemonAPI');
 
-router.post('/', (req, res) => {
+router.post('/login', (req, res) => {
   const login = req.body.login;
   const password = req.body.password;
 
