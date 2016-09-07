@@ -18,6 +18,7 @@ app.all('*', (req, res, next) => {
 
 app.use('/api/auth', routes.auth);
 app.use('/api/user', routes.user);
+app.use('/api/pokemon', routes.pokemon);
 
 app.listen(8081, function () {
   console.log('My Poke Web server listening on port 8081!');
