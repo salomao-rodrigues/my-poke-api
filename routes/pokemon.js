@@ -6,12 +6,9 @@ router.post('/release', (req, res) => {
   const token = req.body.token;
   const pokemonId = req.body.pokemonId;
 
-  PokemonAPI.releasePokemon(token, pokemonId)
-    .then((result, candy) => {
-      res.status(200).json({
-        result,
-        candy
-      });
+  PokemonAPI.release(token, pokemonId)
+    .then((result) => {
+      res.status(200).json(result);
     })
     .catch((err) => {
       console.log('Got an error', err);
@@ -19,6 +16,15 @@ router.post('/release', (req, res) => {
         'error': err.message
       })
     });
+});
+
+router.post('/evolve', (req, res) => {
+  const token = req.body.token;
+  const pokemonId = req.body.pokemonId;
+
+  PokemonAPI.evolve(token, pokemonId)
+    .then((result) => res.status(200).json({ result }))
+    .catch((err) => res.status(401).json({'error': err.message}));
 });
 
 module.exports = router;

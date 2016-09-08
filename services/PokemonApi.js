@@ -22,18 +22,27 @@ const getUserData = (token) => {
     });
 };
 
-const releasePokemon = (token, pokemonID) => {
+const release = (token, pokemonID) => {
   const client = getClient(token);
 
   return client.init()
-  .then(() => {
-     return client.releasePokemon(pokemonID)
-  });
+    .then(() => {
+       return client.releasePokemon(pokemonID)
+    });
+};
+
+const evolve = (token, pokemonID) => {
+  const client = getClient(token);
+
+  return client.init()
+    .then(() => {
+      return client.evolvePokemon(pokemonID);
+    });
 };
 
 module.exports = {
   getClient,
   login,
   getUserData,
-  releasePokemon
+  release
 }
