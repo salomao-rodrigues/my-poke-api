@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "make run",
-    "test": "make test"
+    "start": "node --harmony app.js",
+    "test": "mocha --recursive"
   },
   "author": "",
   "license": "ISC",
